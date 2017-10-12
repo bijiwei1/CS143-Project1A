@@ -7,7 +7,10 @@ CREATE TABLE Movie(
 ); 
 
 CREATE TABLE Actor(
-	id INT primary key, -- Each movie has its own id
+	-- ID is unique to all people (which is shared between actors and directors)
+	-- if a person is both an actor and a director, the person will have the same 
+	-- ID both in the Actor and the Director table
+	id INT primary key, 
 	last VARCHAR(20),
 	first VARCHAR(20),
 	sex VARCHAR(6),
@@ -22,7 +25,10 @@ CREATE TABLE Sales(
 );
 
 CREATE TABLE Director(
-	id INT primary key, -- Each movie has its own id
+	-- ID is unique to all people (which is shared between actors and directors)
+	-- if a person is both an actor and a director, the person will have the same 
+	-- ID both in the Actor and the Director table
+	id INT primary key, 
 	last VARCHAR(20),
 	first VARCHAR(20),
 	sex VARCHAR(6),
@@ -35,7 +41,7 @@ CREATE TABLE MovieGenre(
 	genre VARCHAR(20)
 );
 
-CREATE TABLE MovieGeMovieDirectornre(
+CREATE TABLE MovieDirector(
 	mid INT primary key, -- Each movie has its own id
 	did INT
 );
