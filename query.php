@@ -10,7 +10,7 @@
 
     <p>
 		<form action ="" method="GET">
-			<textarea NAME="query" rows=10 cols=50> 
+			<textarea name="query" rows=10 cols=50> 
 				<?php if (isset($_GET["query"])) echohtmlspecialchars($_GET["query"]);?>
 			</textarea><br />
 			<input type="submit" value="Submit" />
@@ -60,7 +60,7 @@
             	echo "<td>" . $field->name . "</tb>";
         	}
         	echo "</tr>\n";
-        	
+
         	while ($row = mysql_fetch_row($result)) {
             	echo "<tr>";
             	for ($i = 0; $i < mysql_num_fields($result); $i++) {
