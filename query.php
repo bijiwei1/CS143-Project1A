@@ -54,10 +54,10 @@
 			 // Print table with results
         echo "<h3>Results from MySQL:</h3>\n";
         echo "<table border=1 cellspacing=1 cellpadding=2>\n";
-        echo "<tr align=center>";
+        echo "<tr>";
         for ($i = 0; $i < mysql_num_fields($result); $i++) {
             $field = mysql_fetch_field($result, $i);
-            echo "<td><b>" . $field->name . "</b></td>";
+            echo "<td>" . $field->name . "</tb>";
         }
         echo "</tr>\n";
         while ($row = mysql_fetch_row($result)) {
@@ -66,11 +66,10 @@
                 $val = $row[$i];
                 if (is_null($val))
                     $val = "N/A";
-                echo "<td>" . htmlspecialchars($val) . "</td>";
+                echo "<td>" . $val . "</td>";
             }
             echo "</tr>\n";
         }    
-        
          echo "</table>\n";
 			//release result
 			mysql_free_result($rs);
