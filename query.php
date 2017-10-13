@@ -53,27 +53,27 @@
 
 			//print result
 			echo "<h3>Results from MySQL:</h3>\n";
-			echo "<table>\n";
+			echo "<table border = 1 cellspacing=1 cellpadding=2>\n";
 			echo "<tr>";
 			for ($col = 0; $col < mysql_num_fields($rs); $col++){
-					$field = mysql_fetch_field($rs,$col);
+					$field = mysql_fetch_field($rs, $col);
 					echo "<tb>" . $field ->name . "</tb>";
 			}
 			echo "</tr>\n"
 
-			while ($row= mysql_fetch_row($rs)){
+			while ($row = mysql_fetch_row($rs)){
 				echo "<tr>";
 				for ($col = 0; $col <mysql_num_fields($rs); $col++){
 					$val = $row[$col];
 					if (is_null($val)){
 						$val = "N/A";
 					}
-                	echo "<tb>" . $val . "</tb>";
+                	echo "<tb>" . $val  . "</tb>";
 				}
 				echo "</tr>\n";
 			}
 
-			echo "</table>\n"
+			echo "</table>\n";
 			//release result
 			mysql_free_result($rs);
 			//close datavase
