@@ -55,7 +55,7 @@
 			echo "<h3>Results from MySQL:</h3>\n";
 			echo "<table>\n";
 			echo "<tr>";
-			for ($col; $col < mysql_num_fields($rs); $col ++){
+			for ($col = 0; $col < mysql_num_fields($rs); $col++){
 					$field = mysql_fetch_field($rs,$col);
 					echo "<tb>" . $field ->name . "</tb>";
 			}
@@ -63,7 +63,7 @@
 
 			while ($row= mysql_fetch_row($rs)){
 				echo "<tr>";
-				for ($col; $col <mysql_num_fields($rs); $col++){
+				for ($col = 0; $col <mysql_num_fields($rs); $col++){
 					$val = $row[$col];
 					if (is_null($val)){
 						$val = "N/A";
