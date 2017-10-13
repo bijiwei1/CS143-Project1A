@@ -57,16 +57,17 @@
 			echo "<tr>";
 			for ($col; $col < mysql_num_fields($rs); $col ++){
 					$field = mysql_fetch_field($rs,$col);
-					echo "<tb>" . $field ->name . "</tb>"
+					echo "<tb>" . $field ->name . "</tb>";
 			}
 			echo "</tr>\n"
 
-			while ($row= mysqli_fetch_row($rs)){
-				echo "<tr>"
+			while ($row= mysql_fetch_row($rs)){
+				echo "<tr>";
 				for ($col; $col <mysql_num_fields($rs); $col++){
 					$val = $row[$col];
-					if (is_null($val))
-                    $val = "N/A";
+					if (is_null($val)){
+						$val = "N/A";
+					}
                 	echo "<tb>" . $val . "</tb>";
 				}
 				echo "</tr>\n";
