@@ -47,7 +47,7 @@
                 $val = $row[$i];
                 if (is_null($val))
                     $val = "N/A";
-                echo "<td>" . htmlspecialchars($val) . "</td>";
+                echo "<td>" . $val . "</td>";
             }
             echo "</tr>\n";
         }    
