@@ -4,15 +4,17 @@
 </head>
 
 <body>
+	<header>
+        <h1>CS 143 Project 1A</h1>
+    </header>
 
+    <p>
 	<form action ="" method="GET">
 		<TEXTAREA NAME="query" ROWS=10 COLS=50> 
 			<?php if (isset($_GET["query"])) echohtmlspecialchars($_GET["query"]);?>
 		</TEXTAREA><br />
 		<input type="submit" value="Submit" />
 	</form>
-
-</body>>
 
 	<?php 
 		if (!isset($_GET["query"]) || $_GET["query"] === "")
@@ -54,5 +56,6 @@
 
 		//retrieving results
     ?>
-
+	</p>
+</body>>
 </html>
