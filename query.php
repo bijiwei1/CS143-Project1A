@@ -23,17 +23,19 @@
 			//connect to local machine with username cs143 and empty pw
 			$db_connection = mysql_connect("localhost", "cs143", "");
 			if(!$db_connection) {
-   				$errmsg = mysql_error($db_connection);
-    			print "Connection failed: $errmsg" <br />;
-    			exit(1);
+   				//$errmsg = mysql_error($db_connection);
+    			//print "Connection failed: $errmsg" <br />;
+    			//exit(1);
+    			die ("Connection failed" . mysql_error());
 			}
 
 			//select a specific database
 			$db_selected = mysql_select_db("CS143", $db_connection);
 			if(!$db_selected) {
-   				$errmsg = mysql_error($db_selected);
-    			print "Connection failed: $errmsg" <br />;
-    			exit(1);
+   				//$errmsg = mysql_error($db_selected);
+    			//print "Connection failed: $errmsg" <br />;
+    			//exit(1);
+    			die ("Connection failed" . mysql_error());
 			}
 
 			//check user input 
@@ -43,19 +45,19 @@
 			$user_sql =  $_GET["query"];
 			$rs = mysql_query($user_sql);
 			if(!$rs) {
-				$errmsg = mysql_error($rs);
-    			print "Connection failed: $errmsg" <br />;
-    			exit(1);
+				//$errmsg = mysql_error($rs);
+    			//print "Connection failed: $errmsg" <br />;
+    			//exit(1);
+    			die ("Connection failed" . mysql_error());
 			}
 
 			//print result
 			echo "<h3>Results from MySQL:</h3>\n";
 
 			//release result
-			mysql_free_result($result);
+			mysql_free_result($rs);
 			//close datavase
 			mysql_close($db_connection);
-
    		?>
 	</p>
 </body>>
