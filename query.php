@@ -10,8 +10,8 @@
 
     <p>
 		<form action ="" method="GET">
-			<textarea name="query" rows=10 cols=50> 
-				<?php if (isset($_GET["query"])) echohtmlspecialchars($_GET["query"]);?>
+			<textarea name="query" rows="10" cols="50"> 
+				<?php if (isset($_GET["query"])) echo htmlspecialchars($_GET["query"]);?>
 			</textarea><br />
 			<input type="submit" value="Submit" />
 		</form>
