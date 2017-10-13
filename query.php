@@ -29,7 +29,7 @@
 
         $db_selected = mysql_select_db("CS143", $db_connection);
         if (!$db_selected){
-            $errmsg = mysql_error($db_connection);
+            $errmsg = mysql_error($db_selected);
             print "Connection failed: $errmsg" <br />;
             exit(1);
           //  die("Unable to select database: " . mysql_error());
