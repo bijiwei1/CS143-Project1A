@@ -51,29 +51,27 @@
     			die ("Connection failed" . mysql_error());
 			}
 
-			//print result
-			echo "<h3>Results from MySQL:</h3>\n";
-			echo "<table border=1 cellspacing=1 cellpadding=2>\n";
-			echo "<tr>";
-			for ($col = 0; $col < mysql_num_fields($rs); $col++){
-					$field = mysql_fetch_field($rs, $col);
-					echo "<tb>" . $field->name . "</tb>";
-			}
-			echo "</tr>\n"
-
-			while ($row = mysql_fetch_row($rs)){
-				echo "<tr>";
-				for ($i = 0; $i <mysql_num_fields($rs); $i++){
-					$tmp = $row[$i];
-					if (is_null($tmp)){
-						$tmp = "N/A";
-					}
-                	echo "<tb>" . htmlspecialchars($tmp)  . "</tb>";
-				}
-				echo "</tr>\n";
-			}
-			echo "</table>\n";
-
+			 // Print table with results
+        echo "<h3>Results from MySQL:</h3>\n";
+        echo "<table border=1 cellspacing=1 cellpadding=2>\n";
+        echo "<tr align=center>";
+        for ($i = 0; $i < mysql_num_fields($result); $i++) {
+            $field = mysql_fetch_field($result, $i);
+            echo "<td><b>" . $field->name . "</b></td>";
+        }
+        echo "</tr>\n";
+        while ($row = mysql_fetch_row($result)) {
+            echo "<tr align=center>";
+            for ($i = 0; $i < mysql_num_fields($result); $i++) {
+                $val = $row[$i];
+                if (is_null($val))
+                    $val = "N/A";
+                echo "<td>" . htmlspecialchars($val) . "</td>";
+            }
+            echo "</tr>\n";
+        }    
+        
+         echo "</table>\n";
 			//release result
 			mysql_free_result($rs);
 			//close datavase
