@@ -23,7 +23,7 @@
         if (!$db_connection)
             die("Unable to connect to database: " . mysql_error());
 
-        $db_selected = mysql_select_db("CS143", $db);
+        $db_selected = mysql_select_db("CS143", $db_connection);
         if (!$db_selected)
             die("Unable to select database: " . mysql_error());
 
