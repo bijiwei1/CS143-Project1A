@@ -1,16 +1,48 @@
 <html>
 <head>
-    <title>CS 143 - Project 1A</title>
+    <title>CS 143 Project 1A</title>
 </head>
 
-<form>
-	<TEXTAREA NAME="area" ROWS=5 COLS=30>
-	</TEXTAREA>
-</form>>
+<body>
+	
+	<form action ="" method="GET">
+		<TEXTAREA NAME="query" ROWS=10 COLS=50> 
+			<?php if (isset($_GET["query"])) echohtmlspecialchars($_GET["query"]);?>
+		</TEXTAREA><br />
+		<input type="submit" value="Submit" />
+	</form>>
 
+	<?php 
+		if (!isset($_GET["query"]) || $_GET["query"] === "")
+        	die("No query entered.");
+		
+		//connect to local machine with username cs143 and empty pw
+		$db_connection = mysql_connect("localhost", "cs143", "");
+		if(!$db_connection) {
+   			$errmsg = mysql_error($db_connection);
+    		print "Connection failed: $errmsg" <br />;
+    		exit(1);
+		}
 
-<?php
+		//select a specific database
+		mysql_select_db("TEST", $db_connection);
 
-?>
+		//check user input 
+		$sanitized_name = mysql_real_escape_string($name, $db_connection);
+		$query_to_issue = sprintf($query, $sanitized_name);
+		//issue queries
+		$rs = mysql_query($query_to_issue, $db_connection);
+
+		//print result
+		echo "fetch result"
+
+		//close datavase
+		mysql_close($db_connection);
+
+		//retrieving results
+
+	?>
+
+</body>>
 
 </html>
