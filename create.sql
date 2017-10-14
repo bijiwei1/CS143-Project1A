@@ -43,7 +43,7 @@ CREATE TABLE MovieGenre(
 CREATE TABLE MovieDirector(
 	mid INT NOT NULL, 
 	did INT NOT NULL, 
-	FOREIGN KEY (mid) references Movie(id)  -- Reference 3
+	FOREIGN KEY (mid) references Movie(id),  -- Reference 3
 	FOREIGN KEY (did) references Director(id)  -- Reference 4
 )ENGINE=INNODB;
 
@@ -51,7 +51,7 @@ CREATE TABLE MovieActor(
 	mid INT NOT NULL,  
 	aid INT NOT NULL,
 	role VARCHAR(50)，
-	FOREIGN KEY (mid) references Movie(id)  -- Reference 5
+	FOREIGN KEY (mid) references Movie(id),  -- Reference 5
 	FOREIGN KEY (aid) references Actor(id)  -- Reference 6
 )ENGINE=INNODB;
 
@@ -59,7 +59,7 @@ CREATE TABLE MovieRating(
 	mid INT NOT NULL, 
 	imdb INT,
 	rot INT,
-	CHECK(imdb >= 0 AND rating <= 100)  --Check 1: imdb is 0 - 100
+	CHECK(imdb >= 0 AND rating <= 100),  --Check 1: imdb is 0 - 100
 	CHECK(rot >= 0 AND rating <= 100)  --Check 2: rot is 0 - 100
 )ENGINE = INNODB;
 
