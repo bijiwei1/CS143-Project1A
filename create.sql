@@ -59,8 +59,8 @@ CREATE TABLE MovieRating(
 	mid INT NOT NULL, 
 	imdb INT,
 	rot INT,
-	CHECK(imdb >= 0 AND rating <= 100),  --Check 1: imdb is 0 - 100
-	CHECK(rot >= 0 AND rating <= 100)  --Check 2: rot is 0 - 100
+	CHECK(imdb >= 0 AND rating <= 100),  -- Check 1: imdb is 0 - 100
+	CHECK(rot >= 0 AND rating <= 100)  -- Check 2: rot is 0 - 100
 )ENGINE = INNODB;
 
 CREATE TABLE Review(
@@ -69,7 +69,7 @@ CREATE TABLE Review(
 	mid INT, 
 	rating INT,
 	comment VARCHAR(500),
-    CHECK(rating >= 0 AND rating <= 5)  --Check 3: rating is 0 - 5
+    CHECK(rating >= 0 AND rating <= 5)  -- Check 3: rating is 0 - 5
 )ENGINE = INNODB;
 
 CREATE TABLE MaxPersonID(
