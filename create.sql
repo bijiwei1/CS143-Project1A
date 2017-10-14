@@ -1,11 +1,11 @@
 CREATE TABLE Movie(
-	id INT NOT NULL,  --Every movie must have a id
-	title VARCHAR(100) NOT NULL, --Every movie must have a title
+	id INT NOT NULL,  
+	title VARCHAR(100) NOT NULL, 
 	year INT,
 	rating VARCHAR(10),
 	company VARCHAR(50),
 	PRIMARY KEY(id) -- Primary 1: Every movie has a unique id
-) ENGINE = InnoDB; 
+) ENGINE = INNODB; 
 
 CREATE TABLE Actor(
 	id INT NOT NULL,  --Every actor must have a id.
