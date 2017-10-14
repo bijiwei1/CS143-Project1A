@@ -20,12 +20,20 @@
             die("No query entered.");
         $db_connection = mysql_connect("localhost", "cs143", "");
 
-        if (!$db_connection)
-            die("Unable to connect to database: " . mysql_error());
+        if (!$db_connection){
+            $errmsg = mysql_error($db_connection);
+            print "Connection failed: $errmsg" <br />;
+            exit(1);
+            //die("Unable to connect to database: " . mysql_error());
+        }
 
         $db_selected = mysql_select_db("CS143", $db_connection);
-        if (!$db_selected)
-            die("Unable to select database: " . mysql_error());
+        if (!$db_selected){
+            $errmsg = mysql_error($db_connection);
+            print "Connection failed: $errmsg" <br />;
+            exit(1);
+          //  die("Unable to select database: " . mysql_error());
+        }
 
         $user_sql = $_GET["query"];
         if (!$result = mysql_query($user_sql))
@@ -53,7 +61,7 @@
             echo "</tr>\n";
         }    
         echo "</table>\n";
-        
+
         mysql_free_result($result);
         mysql_close($db);
         ?>

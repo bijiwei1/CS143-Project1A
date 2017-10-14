@@ -23,21 +23,18 @@
         if (!$db_connection){
             echo "Connection failed: " . mysql_error($db_connection) . "\n";
             exit(1);
-            //die("Unable to connect to database: " . mysql_error());
         }
 
         $db_selected = mysql_select_db("CS143", $db_connection);
         if (!$db_selected){
             echo "Connection failed: " . mysql_error($db_selected) . "\n";
             exit(1);
-            //die("Unable to select database: " . mysql_error());
         }
 
         $user_sql = $_GET["query"];
         if (!$result = mysql_query($user_sql)){
         	 echo "Connection failed: " . mysql_error($user_sql) . "\n";
             exit(1);
-            //die("Error executing query: " . mysql_error());
         }
 
 
