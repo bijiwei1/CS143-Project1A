@@ -50,7 +50,7 @@ CREATE TABLE MovieDirector(
 CREATE TABLE MovieActor(
 	mid INT NOT NULL,  
 	aid INT NOT NULL,
-	role VARCHAR(50)，
+	role VARCHAR(50),
 	FOREIGN KEY (mid) references Movie(id),  -- Reference 5
 	FOREIGN KEY (aid) references Actor(id)  -- Reference 6
 )ENGINE=INNODB;
@@ -68,7 +68,7 @@ CREATE TABLE Review(
 	time TIMESTAMP,
 	mid INT, 
 	rating INT,
-	comment VARCHAR(500)，
+	comment VARCHAR(500),
     CHECK(rating >= 0 AND rating <= 5)  --Check 3: rating is 0 - 5
 )ENGINE = INNODB;
 
