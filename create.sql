@@ -1,6 +1,6 @@
 CREATE TABLE Movie(
-	id INT NOT NULL,  
-	title VARCHAR(100) NOT NULL, 
+	id INT NOT NULL, -- Each movie must have an id 
+	title VARCHAR(100) NOT NULL, -- Each movie must have a title 
 	year INT,
 	rating VARCHAR(10),
 	company VARCHAR(50),
@@ -8,24 +8,24 @@ CREATE TABLE Movie(
 ) ENGINE = INNODB; 
 
 CREATE TABLE Actor(
-	id INT NOT NULL,  
+	id INT NOT NULL,  -- Each actor must have an id 
 	last VARCHAR(20),
 	first VARCHAR(20),
 	sex VARCHAR(6),
-	dob DATE NOT NULL, 
+	dob DATE NOT NULL, -- Each actor must have a date of born 
 	dod DATE,
 	PRIMARY KEY(id) -- Primary key 2: Every actor has a unique id
 )ENGINE = INNODB;
 
 CREATE TABLE Sales(
-	mid INT NOT NULL,  
+	mid INT NOT NULL,  -- Each movie must have an id 
 	ticketsSold INT,
 	totalIncome INT,
 	FOREIGN KEY (mid) references Movie(id)  -- Reference 1
 )ENGINE=INNODB;
 
 CREATE TABLE Director(
-	id INT NOT NULL,
+	id INT NOT NULL,  -- Each director must have an id 
 	last VARCHAR(20),
 	first VARCHAR(20),
 	sex VARCHAR(6),
@@ -35,7 +35,7 @@ CREATE TABLE Director(
 )ENGINE = INNODB;
 
 CREATE TABLE MovieGenre(
-	mid INT NOT NULL,  
+	mid INT NOT NULL,  -- Each movie must have an id 
 	genre VARCHAR(20),
 	FOREIGN KEY (mid) references Movie(id)  -- Reference 2
 )ENGINE=INNODB;
