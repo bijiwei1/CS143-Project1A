@@ -8,11 +8,11 @@ CREATE TABLE Movie(
 ) ENGINE = INNODB; 
 
 CREATE TABLE Actor(
-	id INT NOT NULL,  --Every actor must have a id.
+	id INT NOT NULL,  
 	last VARCHAR(20),
 	first VARCHAR(20),
 	sex VARCHAR(6),
-	dob DATE NOT NULL, -- Every actor must have a date of birth.
+	dob DATE NOT NULL, 
 	dod DATE,
 	PRIMARY KEY(id) -- Primary key 2: Every actor has a unique id
 )ENGINE = INNODB;
