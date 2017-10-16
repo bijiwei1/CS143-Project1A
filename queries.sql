@@ -1,5 +1,5 @@
 --The names of all the actors in the movie 'Death to Smoochy'.
-select concat(a.first, " ", a.last) as Name
+select concat(a.first, ' ', a.last) 
 from Actor a
 where a.id = (select ma.aid
 			  from MovieActor ma
